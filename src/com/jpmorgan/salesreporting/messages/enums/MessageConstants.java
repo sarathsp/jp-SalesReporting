@@ -8,7 +8,7 @@ package com.jpmorgan.salesreporting.messages.enums;
  */
 
 public enum MessageConstants {
-	REPORTCOUNT(10),ADJUSTMENTCOUNT(50),SINGLE(1);
+	REPORTCOUNT(10),ADJUSTMENTCOUNT(50),SINGLE(1),ZERO(0);
 	 private MessageConstants(int messageCount){
 		    this.messageCount = messageCount;
 		  }

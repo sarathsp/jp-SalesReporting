@@ -11,6 +11,7 @@ import com.jpmorgan.salesreporting.messages.MultiSalesMessage;
 import com.jpmorgan.salesreporting.messages.SalesMessage;
 import com.jpmorgan.salesreporting.messages.enums.MessageConstants;
 import com.jpmorgan.salesreporting.messages.enums.OperationType;
+import com.jpmorgan.salesreporting.messages.enums.SalesConstant;
 import com.jpmorgan.salesreporting.reports.AdjustmentsReport;
 
 /**
@@ -41,7 +42,8 @@ public class SalesProcessingEngine {
 				adjustmentReportList.add(adjustmentReport);
 			}
 			inStreamMessages.add(msg);
-			if(inStreamMessages.size() == MessageConstants.REPORTCOUNT.getMessageCount()) {
+			if((inStreamMessages.size() % MessageConstants.REPORTCOUNT.getMessageCount())
+					== MessageConstants.ZERO.getMessageCount()) {
 				logSalesReportForProduct(inStreamMessages);
 			}
 			if(inStreamMessages.size() == MessageConstants.ADJUSTMENTCOUNT.getMessageCount()) {
